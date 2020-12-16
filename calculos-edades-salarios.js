@@ -13,3 +13,19 @@ function calcularPromedioEdades(lista){
     }
     return suma / lista.length
 }
+
+function calcularPromedioAnualSalarios(listaSalarios){
+    let promedioAnual = 0;
+    for (let i=0; i<listaSalarios.length; i++) {
+        promedioAnual += listaSalarios[i]
+    }
+    return promedioAnual / listaSalarios.length
+}
+
+function calcularSalarioMaximoAnual(listaSalarios){
+    return Math.max(...listaSalarios)
+}
+
+function calcularSalarioMinimoAnual(listaSalarios){
+    return Math.min(...listaSalarios)
+}
