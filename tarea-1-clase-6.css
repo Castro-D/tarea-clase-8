@@ -1,0 +1,18 @@
+#contenedor-salarios {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    position: absolute;
+    left: 290px;
+    top: 12px;
+  }
+  #texto-edades {
+    position: absolute;
+    left: 700px;
+    top: 27px;
+  }
+  #texto-salarios {
+    position: absolute;
+    left: 700px;
+    top: 59px;
+  }
