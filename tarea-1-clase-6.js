@@ -11,10 +11,7 @@ document.querySelector('button').onclick = function(){
     return false
 }
 document.querySelector('#reset-button').onclick = function(){
-    for(let i=1; i<cantidadFamiliares + 1; i++){
-        document.querySelector(`#Edad-${i}`).reset()
-        
-    }
+    resetearPagina()
     return false
 }
 document.querySelector('#boton-agregar').onclick = function(){
@@ -90,4 +87,8 @@ function quitarCampoSalario(){
     const $arraySalarios = document.querySelectorAll('.salarios-valores')
     $arrayEtiquetasSalarios[$arrayEtiquetasSalarios.length - 1].remove()
     $arraySalarios[$arraySalarios.length - 1].remove()
+}
+
+function resetearPagina(){
+    window.location.reload();
 }
