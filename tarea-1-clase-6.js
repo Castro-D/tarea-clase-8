@@ -1,16 +1,7 @@
 
 const cantidadFamiliares = Number(prompt('cuantos familiares tenes?'))
-for (let i=1; i<cantidadFamiliares + 1; i++) {
-    const etiquetaIntegrante = document.createElement('label')
-    const entradaIntegrante = document.createElement('input')
-    const $cuerpo = document.querySelector('body')
-    const espacio = document.createElement('br')
-    etiquetaIntegrante.textContent = `Integrante${i}`
-    entradaIntegrante.id = `Edad-${i}`
-    $cuerpo.appendChild(etiquetaIntegrante)
-    $cuerpo.appendChild(entradaIntegrante)
-    $cuerpo.appendChild(espacio)
-}
+crearIntegrantes(cantidadFamiliares)
+
 document.querySelector('button').onclick = function(){
     let listaEdades = []
     for(let i=1; i<cantidadFamiliares + 1; i++){
@@ -57,6 +48,20 @@ document.querySelector('#boton-quitar').onclick = function(){
     $arrayEtiquetasSalarios[$arrayEtiquetasSalarios.length - 1].remove()
     $arraySalarios[$arraySalarios.length - 1].remove()
     return false
+}
+
+function crearIntegrantes(cantidadFamiliares){
+    for (let i=1; i<cantidadFamiliares + 1; i++) {
+        const etiquetaIntegrante = document.createElement('label')
+        const entradaIntegrante = document.createElement('input')
+        const $cuerpo = document.querySelector('body')
+        const espacio = document.createElement('br')
+        etiquetaIntegrante.textContent = `Integrante${i}`
+        entradaIntegrante.id = `Edad-${i}`
+        $cuerpo.appendChild(etiquetaIntegrante)
+        $cuerpo.appendChild(entradaIntegrante)
+        $cuerpo.appendChild(espacio)
+}
 }
 
 
