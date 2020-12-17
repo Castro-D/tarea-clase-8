@@ -18,22 +18,12 @@ document.querySelector('#reset-button').onclick = function(){
     return false
 }
 document.querySelector('#boton-agregar').onclick = function(){
-    const $div = document.querySelector('#contenedor-salarios')
-    const etiquetaSalarios = document.createElement('label')
-    etiquetaSalarios.className = 'salarios'
-    etiquetaSalarios.textContent = 'Salario anual'
-    const entradaSueldo = document.createElement('input')
-    entradaSueldo.className = 'salarios-valores'
-    $div.appendChild(etiquetaSalarios)
-    $div.appendChild(entradaSueldo)
+    agregarCampoSalarios()
     return false
     
 }
 document.querySelector('#boton-quitar').onclick = function(){
-    const $arrayEtiquetasSalarios = document.querySelectorAll('.salarios')
-    const $arraySalarios = document.querySelectorAll('.salarios-valores')
-    $arrayEtiquetasSalarios[$arrayEtiquetasSalarios.length - 1].remove()
-    $arraySalarios[$arraySalarios.length - 1].remove()
+    quitarCampoSalario()
     return false
 }
 
@@ -82,4 +72,22 @@ function generarResultadoSalarios(){
 function mostrarResultados(funcion){
     funcion()
 
+}
+
+function agregarCampoSalarios(){
+    const $div = document.querySelector('#contenedor-salarios')
+    const etiquetaSalarios = document.createElement('label')
+    etiquetaSalarios.className = 'salarios'
+    etiquetaSalarios.textContent = 'Salario anual'
+    const entradaSueldo = document.createElement('input')
+    entradaSueldo.className = 'salarios-valores'
+    $div.appendChild(etiquetaSalarios)
+    $div.appendChild(entradaSueldo)
+}
+
+function quitarCampoSalario(){
+    const $arrayEtiquetasSalarios = document.querySelectorAll('.salarios')
+    const $arraySalarios = document.querySelectorAll('.salarios-valores')
+    $arrayEtiquetasSalarios[$arrayEtiquetasSalarios.length - 1].remove()
+    $arraySalarios[$arraySalarios.length - 1].remove()
 }
