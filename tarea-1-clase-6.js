@@ -1,12 +1,11 @@
 
 const cantidadFamiliares = Number(prompt('cuantos familiares tenes?'))
+
 crearIntegrantes(cantidadFamiliares)
 
 document.querySelector('button').onclick = function(){
-    let listaEdades = []
-    for(let i=1; i<cantidadFamiliares + 1; i++){
-        listaEdades.push(Number(document.querySelector(`#Edad-${i}`).value))
-    }
+    generarListaEdades(cantidadFamiliares)
+    
  
     document.querySelector('#texto-edades').textContent = `el maximo es de ${calcularEdadMaxima(listaEdades)}, el minimo ${calcularEdadMinima(listaEdades)} y el promedio de ${calcularPromedioEdades(listaEdades)}`
 
@@ -64,4 +63,10 @@ function crearIntegrantes(cantidadFamiliares){
 }
 }
 
+function generarListaEdades(cantidadFamiliares){
+    let listaEdades = []
+    for(let i=1; i<cantidadFamiliares + 1; i++){
+        listaEdades.push(Number(document.querySelector(`#Edad-${i}`).value))
+}
+}
 
