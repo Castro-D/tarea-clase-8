@@ -4,21 +4,9 @@ const cantidadFamiliares = Number(prompt('cuantos familiares tenes?'))
 crearIntegrantes(cantidadFamiliares)
 
 document.querySelector('button').onclick = function(){
-    generarListaEdades(cantidadFamiliares)
+    mostrarResultados(generarResultadoEdades)
     
- 
-    document.querySelector('#texto-edades').textContent = `el maximo es de ${calcularEdadMaxima(listaEdades)}, el minimo ${calcularEdadMinima(listaEdades)} y el promedio de ${calcularPromedioEdades(listaEdades)}`
-
-    const salarios = []
-    let $arraySalariosInputs = document.querySelectorAll('.salarios-valores')
-    for (let i=0; i<$arraySalariosInputs.length; i++ ) {
-        if (Number($arraySalariosInputs[i].value)) {
-            salarios.push(Number($arraySalariosInputs[i].value))
-        }
-    }
-        
-    const $textoSalarios = document.querySelector('#texto-salarios')
-    $textoSalarios.textContent = `el salario minimo anual es de ${calcularSalarioMinimoAnual(salarios)}, el maximo de ${calcularSalarioMaximoAnual(salarios)}, el promedio anual de ${calcularPromedioAnualSalarios(salarios)}, el mensual promedio es ${calcularPromedioAnualSalarios(salarios) / 12}`
+    mostrarResultados(generarResultadoSalarios)
     
     return false
 }
@@ -68,5 +56,30 @@ function generarListaEdades(cantidadFamiliares){
     for(let i=1; i<cantidadFamiliares + 1; i++){
         listaEdades.push(Number(document.querySelector(`#Edad-${i}`).value))
 }
+    return listaEdades
 }
 
+function generarListaSalarios(){
+    const salarios = []
+    let $arraySalariosInputs = document.querySelectorAll('.salarios-valores')
+    for (let i=0; i<$arraySalariosInputs.length; i++ ) {
+        if (Number($arraySalariosInputs[i].value)) {
+            salarios.push(Number($arraySalariosInputs[i].value))
+        }
+    }
+    return salarios
+}
+
+function generarResultadoEdades(){
+    document.querySelector('#texto-edades').textContent = `el maximo es de ${calcularEdadMaxima(generarListaEdades(cantidadFamiliares))}, el minimo ${calcularEdadMinima(generarListaEdades(cantidadFamiliares))} y el promedio de ${calcularPromedioEdades(generarListaEdades(cantidadFamiliares))}`
+}
+
+function generarResultadoSalarios(){
+    const $textoSalarios = document.querySelector('#texto-salarios')
+    $textoSalarios.textContent = `el salario minimo anual es de ${calcularSalarioMinimoAnual(generarListaSalarios())}, el maximo de ${calcularSalarioMaximoAnual(generarListaSalarios())}, el promedio anual de ${calcularPromedioAnualSalarios(generarListaSalarios())}, el mensual promedio es ${calcularPromedioAnualSalarios(generarListaSalarios()) / 12}`
+}
+
+function mostrarResultados(funcion){
+    funcion()
+
+}
