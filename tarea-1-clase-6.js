@@ -1,17 +1,17 @@
 
 const cantidadFamiliares = Number(prompt('cuantos familiares tenes?'))
 for (let i=1; i<cantidadFamiliares + 1; i++) {
-    const elemento = document.createElement('label')
-    const entrada = document.createElement('input')
+    const etiquetaIntegrante = document.createElement('label')
+    const entradaIntegrante = document.createElement('input')
     const $cuerpo = document.querySelector('body')
     const espacio = document.createElement('br')
-    elemento.textContent = `Integrante${i}`
-    entrada.id = `Edad-${i}`
-    $cuerpo.appendChild(elemento)
-    $cuerpo.appendChild(entrada)
+    etiquetaIntegrante.textContent = `Integrante${i}`
+    entradaIntegrante.id = `Edad-${i}`
+    $cuerpo.appendChild(etiquetaIntegrante)
+    $cuerpo.appendChild(entradaIntegrante)
     $cuerpo.appendChild(espacio)
 }
-document.querySelector('button').onclick = function () {
+document.querySelector('button').onclick = function(){
     let listaEdades = []
     for(let i=1; i<cantidadFamiliares + 1; i++){
         listaEdades.push(Number(document.querySelector(`#Edad-${i}`).value))
@@ -35,18 +35,18 @@ document.querySelector('button').onclick = function () {
 document.querySelector('#reset-button').onclick = function(){
     for(let i=1; i<cantidadFamiliares + 1; i++){
         document.querySelector(`#Edad-${i}`).reset()
-        return false
+        
     }
-
+    return false
 }
 document.querySelector('#boton-agregar').onclick = function(){
     const $div = document.querySelector('#contenedor-salarios')
-    const etiqueta = document.createElement('label')
-    etiqueta.className = 'salarios'
-    etiqueta.textContent = 'Salario anual'
+    const etiquetaSalarios = document.createElement('label')
+    etiquetaSalarios.className = 'salarios'
+    etiquetaSalarios.textContent = 'Salario anual'
     const entradaSueldo = document.createElement('input')
     entradaSueldo.className = 'salarios-valores'
-    $div.appendChild(etiqueta)
+    $div.appendChild(etiquetaSalarios)
     $div.appendChild(entradaSueldo)
     return false
     
