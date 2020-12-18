@@ -71,7 +71,7 @@ function mostrarResultados(funcion){
 
 }
 
-function agregarCampoSalarios(){
+function agregarCampoSalarios(){ 
     const $div = document.querySelector('#contenedor-salarios')
     const etiquetaSalarios = document.createElement('label')
     etiquetaSalarios.className = 'salarios'
@@ -91,4 +91,16 @@ function quitarCampoSalario(){
 
 function resetearPagina(){
     window.location.reload();
+}
+
+function validarEdades(edad){
+    if (edad.length === 0){
+        return 'El campo edad no puede estar vacio'
+    }
+
+    if (!/^\d{1,3}$/.test(edad)){
+        return 'Edad invalida'
+    }
+
+    return ''
 }
